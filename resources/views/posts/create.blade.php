@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Create Page')
 @section('pageContentTitle')
 Create Page   
 @endsection
