@@ -24,6 +24,7 @@ Create Page
                 <input type="text" name="postContent" class="form-control" id="name">
             </div>
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            <input type="button" class="btn btn-xs btn-primary" onclick="window.location.href='{{route('posts.index')}}'" value="Back" name="Back" /
           </form>
     </div>
 @endsection

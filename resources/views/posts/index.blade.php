@@ -6,7 +6,7 @@ View Page
 @endsection
 @section('content')
    <div class="container">
-    <input type="button" class="btn btn-xs btn-info" onclick="window.location.href='posts/create'" value="Add" name="Add" /><br><br>
+    <input type="button" class="btn btn-xs btn-primary" onclick="window.location.href='posts/create'" value="Add" name="Add" /><br><br>
     <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -23,19 +23,19 @@ View Page
             
             @foreach ($posts as $post)
                 <tr>
-                    <th>{{ $sno++ }}</th>
-                    <th>{{ $post->Name }}</th>
-                    <td>{{ $post->Email }}</td>
-                    <td>{{ $post->postTitle }}</td>
-                    <td>{{ $post->postContent }}</td>
-                    <td><input type="button" class="btn btn-xs btn-info" onclick="window.location.href='posts/{{ $post->id }}/edit'" value="Edit" name="edit" /></td>
+                    <td style="cursor:pointer;" onclick="window.location.href='posts/{{ $post->id }}'">{{ $sno++ }}</th>
+                    <td style="cursor:pointer;" onclick="window.location.href='posts/{{ $post->id }}'">{{ $post->Name }}</th>
+                    <td style="cursor:pointer;" onclick="window.location.href='posts/{{ $post->id }}'">{{ $post->Email }}</td>
+                    <td style="cursor:pointer;" onclick="window.location.href='posts/{{ $post->id }}'">{{ $post->postTitle }}</td>
+                    <td style="cursor:pointer;" onclick="window.location.href='posts/{{ $post->id }}'">{{ $post->postContent }}</td>
+                    <td><input type="button" class="btn btn-xs btn-primary" onclick="window.location.href='posts/{{ $post->id }}/edit'" value="Edit" name="edit" /></td>
                     <td>
                       <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                         {{-- {{ method_field('DELETE') }} --}}
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="DELETE" />
                         <input type="submit" onclick="return confirm('Are You Sure U Want To Delete This Record');" class="btn btn-xs btn-danger" value="Delete" name="delete" />
-                    </form>
+                      </form>
                     </td>
                 </tr>
            @endforeach
