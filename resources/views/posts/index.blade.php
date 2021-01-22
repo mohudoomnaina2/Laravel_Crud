@@ -14,6 +14,8 @@ View Page
             <th scope="col">Email</th>
             <th scope="col">Post Title</th>
             <th scope="col">Post Content</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +27,8 @@ View Page
                     <td>{{ $post->Email }}</td>
                     <td>{{ $post->postTitle }}</td>
                     <td>{{ $post->postContent }}</td>
+                    <td><input type="submit" onclick="window.location.href='posts/{{ $post->id }}/edit'" value="Edit" name="edit" />
+                    <td><input type="submit" name="delete" onclick="window.location.href='posts/{{ $post->id }}'" value="Delete" />
                 </tr>
            @endforeach
         </tbody>
